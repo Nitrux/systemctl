@@ -2,6 +2,10 @@
 
 set -x
 
+### Clone the source
+git clone --depth=1 https://github.com/gdraheim/docker-systemctl-replacement.git src
+mv src/* . && rm -r src
+
 ### Basic Packages
 apt -qq update
 apt -qq -yy install equivs git devscripts lintian --no-install-recommends
