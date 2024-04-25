@@ -2,7 +2,7 @@ Source: docker-systemctl-replacement
 Section: admin
 Priority: optional
 Standards-Version: 4.5.0
-Maintainer: Dmitry Smirnov <onlyjob@debian.org>
+Maintainer: Uri Herrera <uri_herrera@nxos.org>
 Build-Depends: debhelper-compat (= 12) ,dh-python ,python3
     ,help2man
 Rules-Requires-Root: no
