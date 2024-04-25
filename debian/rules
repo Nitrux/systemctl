@@ -1,0 +1,38 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+#export PYTHONDONTWRITEBYTECODE=1
+#export PYTHONPYCACHEPREFIX=/debian/tmp
+
+include /usr/share/dpkg/pkg-info.mk
+
+%:
+	dh $@ --with python3
+
+override_dh_auto_test:
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	python3 -m py_compile files/docker/systemctl3.py
+	files/docker/systemctl3.py --version
+endif
+# test suite is not converted to Python3 yet.
+#	dh_auto_test
+
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/tmp
+	cp -v files/docker/systemctl3.py debian/tmp/systemctl
+
+MAN=debian/tmp/systemctl.1
+$(MAN):
+	help2man \
+            --no-info \
+            --version-string="$(DEB_VERSION_UPSTREAM)" \
+            --name 'command line utility to manage services without SystemD' \
+        debian/tmp/systemctl > $@
+
+override_dh_installdocs: $(MAN)
+	dh_installdocs -XEUPL-LICENSE.md -XRELEASENOTES.md
+
+override_dh_installchangelogs:
+	dh_installchangelogs RELEASENOTES.md

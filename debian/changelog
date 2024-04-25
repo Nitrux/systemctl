@@ -1,0 +1,31 @@
+docker-systemctl-replacement (1.4.4181-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Dmitry Smirnov <onlyjob@debian.org>  Wed, 06 May 2020 12:45:18 +1000
+
+docker-systemctl-replacement (1.4.4147-2) unstable; urgency=medium
+
+  * Provides: systemd. (For co-installability with "php7.4-fpm").
+
+ -- Dmitry Smirnov <onlyjob@debian.org>  Wed, 06 May 2020 07:43:50 +1000
+
+docker-systemctl-replacement (1.4.4147-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Recommends += "procps".
+  * Standards-Version: 4.5.0.
+
+ -- Dmitry Smirnov <onlyjob@debian.org>  Thu, 23 Apr 2020 22:52:00 +1000
+
+docker-systemctl-replacement (1.4.3424-2) unstable; urgency=medium
+
+  * debhelper-compat: removed "debian/compat" file.
+
+ -- Dmitry Smirnov <onlyjob@debian.org>  Sun, 05 Jan 2020 20:45:38 +1100
+
+docker-systemctl-replacement (1.4.3424-1) unstable; urgency=medium
+
+  * Initial release (Closes: #944039).
+
+ -- Dmitry Smirnov <onlyjob@debian.org>  Sun, 03 Nov 2019 20:26:05 +1100

@@ -1,0 +1,30 @@
+Source: docker-systemctl-replacement
+Section: admin
+Priority: optional
+Standards-Version: 4.5.0
+Maintainer: Dmitry Smirnov <onlyjob@debian.org>
+Build-Depends: debhelper-compat (= 12) ,dh-python ,python3
+    ,help2man
+Rules-Requires-Root: no
+Homepage: https://github.com/gdraheim/docker-systemctl-replacement
+Vcs-Git: https://salsa.debian.org/debian/docker-systemctl-replacement.git
+Vcs-Browser: https://salsa.debian.org/debian/docker-systemctl-replacement
+
+Package: systemctl
+Architecture: all
+Conflicts: systemd
+Provides: systemd
+Depends: ${misc:Depends}, ${python3:Depends}
+Recommends: ${misc:Recommends}
+    ,procps
+Suggests: tini | dumb-init
+Description: daemonless "systemctl" command to manage services without systemd
+ "systemctl" is a replacement command to control system daemons without
+ systemd. "systemctl" is useful in application containers where systemd is
+ not available to start/stop services.
+ .
+ This script can also be run as init of an application container (i.e. the
+ main "CMD" on PID 1) where it will automatically bring up all enabled
+ services in the "multi-user.target" and where it will reap all zombies
+ from background processes in the container. When stopping such a container
+ it will also bring down all configured services correctly before exit.
