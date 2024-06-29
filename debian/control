@@ -13,7 +13,7 @@ Vcs-Browser: https://salsa.debian.org/debian/docker-systemctl-replacement
 Package: systemctl
 Architecture: all
 Conflicts: systemd
-Provides: systemd
+Provides: systemctl
 Depends: ${misc:Depends}, ${python3:Depends}
 Recommends: ${misc:Recommends}
     ,procps
